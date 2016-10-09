@@ -18,5 +18,4 @@ RUN apk add --no-cache imagemagick-dev libtool autoconf gcc g++ make \
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer.phar
 RUN chmod +rx /usr/local/bin/composer.phar
-ADD data/composer.sh /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer    
