@@ -10,4 +10,4 @@ RUN docker-php-ext-install mysqli \
 	&& pecl install imagick-$IMAGICK_VERSION \
 	&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini \
     && apk del libtool autoconf gcc g++ make \
-    && chown -R www-data:www-data /var/www/html
+    && chown -R 82:82 /var/www/html
