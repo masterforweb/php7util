@@ -9,4 +9,7 @@ RUN docker-php-ext-install mysqli \
 	&& apk add --no-cache imagemagick-dev libtool autoconf gcc g++ make \
 	&& pecl install imagick-$IMAGICK_VERSION \
 	&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini \
-    && apk del libtool autoconf gcc g++ make
+    && apk del libtool autoconf gcc g++ make \
+    && usermod -u 1000 www-data
+
+WORKDIR /var/www    
