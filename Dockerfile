@@ -9,8 +9,12 @@ RUN docker-php-ext-install mysqli \
 	&& apk add --no-cache imagemagick-dev libtool autoconf gcc g++ make \
 	&& pecl install imagick-$IMAGICK_VERSION \
 	&& echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini \
-    && apk del libtool autoconf gcc g++ make \
-    && usermod -u 1000 www-data
+    && apk del libtool autoconf gcc g++ make 
+
+# ensure www-data user exists
+RUN set -x \
+	&& addgroup -g 1000 -S arlemp \
+	&& adduser -u 1000 -D -S -G arlemp arlemp    
 
 
 
